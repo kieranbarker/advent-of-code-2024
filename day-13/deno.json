@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "part-01": "deno run --allow-read=input.txt part-01.ts"
+  }
+}
