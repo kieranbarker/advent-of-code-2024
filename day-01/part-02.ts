@@ -14,8 +14,7 @@ const frequencies = new Map<number, number>();
 
 for (const locationId of rightHandSide) {
   let frequency = frequencies.get(locationId) ?? 0;
-  frequency++;
-  frequencies.set(locationId, frequency);
+  frequencies.set(locationId, ++frequency);
 }
 
 let total = 0;
