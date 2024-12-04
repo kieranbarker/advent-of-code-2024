@@ -12,72 +12,56 @@ for (let i = 0; i < grid.length; i++) {
       grid[i - 1]?.[j] === "M" &&
       grid[i - 2]?.[j] === "A" &&
       grid[i - 3]?.[j] === "S"
-    ) {
-      matches++;
-    }
+    ) matches++;
 
     // Diagonal upwards right
     if (
       grid[i - 1]?.[j + 1] === "M" &&
       grid[i - 2]?.[j + 2] === "A" &&
       grid[i - 3]?.[j + 3] === "S"
-    ) {
-      matches++;
-    }
+    ) matches++;
 
     // Horizontal right
     if (
       grid[i][j + 1] === "M" &&
       grid[i][j + 2] === "A" &&
       grid[i][j + 3] === "S"
-    ) {
-      matches++;
-    }
+    ) matches++;
 
     // Diagonal downwards right
     if (
       grid[i + 1]?.[j + 1] === "M" &&
       grid[i + 2]?.[j + 2] === "A" &&
       grid[i + 3]?.[j + 3] === "S"
-    ) {
-      matches++;
-    }
+    ) matches++;
 
     // Vertical downwards
     if (
       grid[i + 1]?.[j] === "M" &&
       grid[i + 2]?.[j] === "A" &&
       grid[i + 3]?.[j] === "S"
-    ) {
-      matches++;
-    }
+    ) matches++;
 
     // Diagonal downards left
     if (
       grid[i + 1]?.[j - 1] === "M" &&
       grid[i + 2]?.[j - 2] === "A" &&
       grid[i + 3]?.[j - 3] === "S"
-    ) {
-      matches++;
-    }
+    ) matches++;
 
     // Horizontal left
     if (
       grid[i][j - 1] === "M" &&
       grid[i][j - 2] === "A" &&
       grid[i][j - 3] === "S"
-    ) {
-      matches++;
-    }
+    ) matches++;
 
     // Diagonal upwards left
     if (
       grid[i - 1]?.[j - 1] === "M" &&
       grid[i - 2]?.[j - 2] === "A" &&
       grid[i - 3]?.[j - 3] === "S"
-    ) {
-      matches++;
-    }
+    ) matches++;
   }
 }
 
