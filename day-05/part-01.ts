@@ -8,7 +8,7 @@ const parsedRules = rules.split("\n").map((rule) => {
 
 const parsedUpdates = updates.split("\n").map((update) => {
   const pages = update.split(",");
-  return pages.map((page) => Number(page));
+  return pages.map(Number);
 });
 
 const correctlyOrderedUpdates = parsedUpdates.filter((update) => {
