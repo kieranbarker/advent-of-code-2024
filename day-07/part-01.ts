@@ -6,38 +6,30 @@ for (const equation of input.split("\n")) {
   equations.set(Number(x), nums.split(" ").map(Number));
 }
 
-function generateExpressions(nums: number[]) {
-  const expressions = new Set<string>();
-  expressions.add(String(nums[0]));
+function calculateResults(nums: number[], current: number, index: number) {
+  if (index === nums.length) return new Set([current]);
 
-  for (let i = 1; i < nums.length; i++) {
-    const num = String(nums[i]);
-    const newExpressions = new Set<string>();
+  const next = nums[index];
+  const results = new Set<number>();
 
-    for (const expr of expressions) {
-      newExpressions.add(`(${expr} + ${num})`);
-      newExpressions.add(`(${expr} * ${num})`);
-    }
-
-    expressions.clear();
-
-    for (const expr of newExpressions) {
-      expressions.add(expr);
-    }
+  for (const result of calculateResults(nums, current + next, index + 1)) {
+    results.add(result);
   }
 
-  return [...expressions];
+  for (const result of calculateResults(nums, current * next, index + 1)) {
+    results.add(result);
+  }
+
+  return results;
 }
 
 let total = 0;
 
-for (const [x, nums] of equations) {
-  const expressions = generateExpressions(nums);
-  const results = expressions.map(eval);
-  const isPossible = results.some((result) => result === x);
+for (const [target, nums] of equations) {
+  const results = calculateResults(nums, nums[0], 1);
 
-  if (isPossible) {
-    total += x;
+  if (results.has(target)) {
+    total += target;
   }
 }
 
