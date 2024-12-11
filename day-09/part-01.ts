@@ -51,10 +51,10 @@ function defragment(blocks: string) {
   const dots = generateDots(blocks);
   const regex = /\d/;
 
-  while (!blocks.endsWith(dots)) {
-    let index = blocks.indexOf(".");
-    let lastIndex = findLastIndex(blocks, regex)!;
+  let index = blocks.indexOf(".");
+  let lastIndex = findLastIndex(blocks, regex)!;
 
+  while (!blocks.endsWith(dots)) {
     blocks = blocks.slice(0, index) + blocks[lastIndex] +
       blocks.slice(index + 1, lastIndex) + "." + blocks.slice(lastIndex + 1);
 
